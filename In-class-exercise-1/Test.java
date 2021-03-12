@@ -30,15 +30,10 @@ class DaffodilCount {
         a = number / 100;
         b = (number % 100) / 10;
         c = number % 10;
-        if (power(a) + power(b) + power(c) == number) {
+        if (Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2) == number) {
             return true;
         } else {
             return false;
         }
     }
-
-    public static int power(int a) {
-        return a * a * a;
-    }
-
 }
