@@ -11,14 +11,10 @@ public class NarcissisticNumber {
             a = number / 100;
             b = (number % 100) / 10;
             c = number % 10;
-            if (power(a) + power(b) + power(c) == number) {
+            if (Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2) == number) {
                 System.out.println(number);
             }
             number++;
         }
-    }
-
-    public static int power(int a) {
-        return a * a * a;
     }
 }
