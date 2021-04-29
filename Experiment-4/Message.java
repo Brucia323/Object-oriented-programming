@@ -5,7 +5,6 @@ import java.util.StringTokenizer;
 /**
  * 读取留言
  *
- * @return
  * @throws IOException
  * @version 1.0
  */
