@@ -34,6 +34,7 @@ public class Liuyan {
                         System.out.println("author:" + message.getAuthor());
                         System.out.println("title:" + message.getTitle());
                         System.out.println("content:" + message.getContent());
+                        messageNumber = messageNumber + 1;
                     }
                     System.out.println("*****************************");
                 }
