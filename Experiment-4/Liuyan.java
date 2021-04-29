@@ -59,7 +59,8 @@ public class Liuyan {
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            // e.printStackTrace();
+            System.out.println("程序权限不足");
         }
     }
 }
