@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.StringTokenizer;
 
@@ -6,17 +7,17 @@ public class Message {
     private String title;
     private String content;
     private String message;
-    private int filePointer;
-    private int fileLength;
+    private long filePointer;
+    private long fileLength;
 
-    public Message() {
+    public Message() throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile("D:/message.txt", "r");
         fileLength=randomAccessFile.length();
         randomAccessFile.close();
         filePointer = 0;
     }
 
-    public boolean message() {
+    public boolean message() throws IOException {
         if (filePointer == fileLength) {
             return false;
         }
