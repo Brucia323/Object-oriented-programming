@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
  * 读取留言
  *
  * @throws IOException
- * @version 1.0
+ * @version 1.2
  */
 public class Message {
     /** 作者 */
@@ -26,10 +26,10 @@ public class Message {
      * 构造方法
      *
      * @throws IOException
-     * @version 1.0
+     * @version 1.1
      */
     public Message() throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile("D:/message.txt", "r");// 定义RandomAccessFile类，使用只读模式打开D:\message.txt文件
+        RandomAccessFile randomAccessFile = new RandomAccessFile("message.txt", "r");// 定义RandomAccessFile类，使用只读模式打开D:\message.txt文件
         fileLength = randomAccessFile.length();
         randomAccessFile.close();// 关闭RandomAccessFile类
         filePointer = 0;
@@ -41,13 +41,10 @@ public class Message {
      * @return 是否有留言能够读取
      * @throws IOException
      * @since 1.0
-     * @version 1.1
+     * @version 1.2
      */
-    public boolean message() throws IOException {
-        if (filePointer == fileLength) {
-            return false;
-        }
-        RandomAccessFile randomAccessFile = new RandomAccessFile("D:/message.txt", "r");// 定义RandomAccessFile类，使用只读模式打开D:\message.txt文件
+    public void message() throws IOException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile("message.txt", "r");// 定义RandomAccessFile类，使用只读模式打开D:\message.txt文件
         randomAccessFile.seek(filePointer);// 设定读写指针的位置，与文件开头相隔[当前读写指针所处的位置]个字节数
         message = randomAccessFile.readLine();
         filePointer = randomAccessFile.getFilePointer();
@@ -56,7 +53,6 @@ public class Message {
         author = stringTokenizer.nextToken();
         title = stringTokenizer.nextToken();
         content = stringTokenizer.nextToken();
-        return true;
     }
 
     /**
