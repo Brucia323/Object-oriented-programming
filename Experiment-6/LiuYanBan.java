@@ -9,6 +9,8 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
     private TextArea A_content;
     private Button submit, reset, display;
     private Panel p12, p21, p22, p31, p32, p41, p42, p43;
+    private String userString;
+    private Message message;
 
     @Override
     public void init() {
@@ -132,15 +134,23 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
         submit.addActionListener(this);
         reset.addActionListener(this);
         display.addActionListener(this);
+        T_author.addMouseListener(this);
         T_title.addMouseListener(this);
+        A_content.addMouseListener(this);
+
+        try {
+            message = new Message();
+        } catch (IOException e) {
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
         if (e.getSource() == submit) {
-            if (submit.getLabel() == "login") {
-                if (T_title.getText().length() < 6) {
+            if (submit.getLabel().equals("login")) {
+                if (T_author.getText().isEmpty()) {
+                    T_author.setText("ÇëÊäÈëÓÃ»§Ãû");
+                } else if (T_title.getText().length() < 6) {
                     T_title.setEchoChar((char) 0);
                     T_title.setText("ÃÜÂë´íÎó");
                 } else {
@@ -155,26 +165,42 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                     T_title.setEchoChar((char) 0);
                     T_title.setText(" ");
                     T_title.setText("");
+                    userString = T_author.getText();
                 }
-            } else {
-                MessageSet messageSet = new MessageSet(T_author.getText(), T_title.getText(), A_content.getText());
+            } else if (submit.getLabel().equals("submit")) {
+                if (T_title.getText().isEmpty() || A_content.getText().isEmpty()) {
+                    reset.setLabel("ÁôÑÔÊ§°Ü");
+                } else {
+                    MessageSet messageSet = new MessageSet(T_author.getText(), T_title.getText(), A_content.getText());
+                    try {
+                        messageSet.messageSet();
+                        reset.setLabel("ÁôÑÔ³É¹¦");
+                        T_title.setText(" ");
+                        A_content.setText(" ");
+                        T_title.setText("");
+                        A_content.setText("");
+                        message = new Message();
+                        display.setLabel("display");
+                    } catch (IOException e1) {
+                        reset.setLabel("ÁôÑÔÊ§°Ü");
+                    }
+                }
+            } else if (submit.getLabel().equals("first")) {
                 try {
-                    messageSet.messageSet();
+                    message = new Message();
+                    message.message();
+                    T_author.setText(message.getAuthor());
+                    T_title.setText(message.getTitle());
+                    A_content.setText(message.getContent());
+                    reset.setLabel("next");
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    submit.setLabel("¶ÁÈ¡Ê§°Ü");
                 }
-                T_author.setText(" ");
-                T_title.setText(" ");
-                A_content.setText(" ");
-                T_author.setText("");
-                T_title.setText("");
-                A_content.setText("");
             }
         }
         if (e.getSource() == reset) {
-            if (reset.getLabel() == "guest") {
-                T_author.setText("ÓÎ¿Í"+System.currentTimeMillis());
+            if (reset.getLabel().equals("guest")) {
+                T_author.setText("guest" + System.currentTimeMillis());
                 L_content.setVisible(true);
                 A_content.setVisible(true);
                 display.setVisible(true);
@@ -186,25 +212,80 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                 T_title.setEchoChar((char) 0);
                 T_title.setText(" ");
                 T_title.setText("");
-
-            } else {
+                userString = T_author.getText();
+            } else if (reset.getLabel().equals("reset")) {
                 T_title.setText(" ");
                 A_content.setText(" ");
                 T_title.setText("");
                 A_content.setText("");
+            } else if (reset.getLabel().equals("next")) {
+                try {
+                    message.message();
+                    T_author.setText(message.getAuthor());
+                    T_title.setText(message.getTitle());
+                    A_content.setText(message.getContent());
+                } catch (Exception e1) {
+                    reset.setLabel("at last");
+                }
             }
         }
-
+        if (e.getSource() == display) {
+            if (display.getLabel().equals("display")) {
+                try {
+                    message.message();
+                    T_author.setText(message.getAuthor());
+                    T_title.setText(message.getTitle());
+                    A_content.setText(message.getContent());
+                    T_title.setEditable(false);
+                    A_content.setEditable(false);
+                    display.setLabel("close");
+                    submit.setLabel("first");
+                    reset.setLabel("next");
+                } catch (IOException e1) {
+                    display.setLabel("¶ÁÈ¡Ê§°Ü");
+                } catch (Exception exception) {
+                    try {
+                        message = new Message();
+                    } catch (IOException e1) {
+                        display.setLabel("ÎÞÁôÑÔ");
+                    }
+                }
+            } else if (display.getLabel().equals("close")) {
+                T_author.setText(userString);
+                T_title.setText(" ");
+                A_content.setText(" ");
+                T_title.setText("");
+                A_content.setText("");
+                T_title.setEditable(true);
+                A_content.setEditable(true);
+                submit.setLabel("submit");
+                reset.setLabel("reset");
+                display.setLabel("display");
+            }
+        }
         repaint();
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-        if (L_title.getText() == "ÃÜÂë£º"){
-            T_title.setText(" ");
-            T_title.setText("");
-            T_title.setEchoChar('*');
+        if (e.getSource() == T_author) {
+            if (L_author.getText().equals("ÓÃ»§Ãû£º")){
+                T_author.setText(" ");
+                T_author.setText("");
+            }
+        }
+        if (e.getSource() == T_title) {
+            if (L_title.getText().equals("ÃÜÂë£º")){
+                T_title.setText(" ");
+                T_title.setText("");
+                T_title.setEchoChar('*');
+            }
+            if (L_title.getText().equals("±êÌâ£º")){
+                reset.setLabel("reset");
+            }
+        }
+        if (e.getSource() == A_content) {
+            reset.setLabel("reset");
         }
     }
 
