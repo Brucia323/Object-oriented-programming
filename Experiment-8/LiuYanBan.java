@@ -8,7 +8,7 @@ import java.util.TimerTask;
 /**
  * 留言板
  *
- * @version 3.1
+ * @version 4.1
  */
 public class LiuYanBan extends Applet implements ActionListener, MouseListener {
     private static final Frame LiuYanBan = null;
@@ -17,13 +17,14 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
     private TextArea A_content;
     private Button submit, reset, display, button;
     private Panel p12, p21, p22, p31, p32, p41, p42, p43, p51, panel;
-    private String userString;
+    private String userString,titleString,contentString;
     private Message message;
     private Label time;
     private Timer timer;
     private String text;
     private int days, hours, minutes, seconds;
     private Dialog dialog;
+    private User login,enroll;
 
     @Override
     public void init() {
@@ -195,10 +196,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
         T_author.addMouseListener(this);
         T_title.addMouseListener(this);
 
-        try {
-            message = new Message();
-        } catch (IOException e) {
-        }
+        message = new Message();
     }
 
     @Override
@@ -211,7 +209,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
             if (submit.getLabel().equals("登录")) {
-                Login login = new Login(T_author.getText(), T_title.getText());
+                login = new User(T_author.getText(), T_title.getText());
                 if (T_author.getText().isEmpty() || T_title.getText().isEmpty()) {
                     label.setText("请输入用户名或密码");
                     dialog.setVisible(true);
@@ -254,9 +252,11 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                     label.setText("不允许换行输入");
                     dialog.setVisible(true);
                 } else {
-                    MessageSet messageSet = new MessageSet(T_author.getText(), T_title.getText(), A_content.getText());
+                    message.setAuthor(T_author.getText());
+                    message.setTitle(T_title.getText());
+                    message.setContent(A_content.getText());
                     try {
-                        messageSet.messageSet();
+                        message.messageSet();
                         label.setText("留言成功");
                         dialog.setVisible(true);
                         T_title.setText(" ");
@@ -273,7 +273,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
             } else if (submit.getLabel().equals("第一条")) {
                 try {
                     message = new Message();
-                    message.message();
+                    message.read();
                     T_author.setText(message.getAuthor());
                     T_title.setText(message.getTitle());
                     A_content.setText(message.getContent());
@@ -287,7 +287,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                     label.setText("密码至少6位");
                     dialog.setVisible(true);
                 } else {
-                    Enroll enroll = new Enroll(T_author.getText(), T_title.getText());
+                    enroll = new User(T_author.getText(), T_title.getText());
                     try {
                         if (enroll.enroll()) {
                             label.setText("注册成功");
@@ -329,9 +329,11 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                 A_content.setText(" ");
                 T_title.setText("");
                 A_content.setText("");
+                titleString = "";
+                contentString = "";
             } else if (reset.getLabel().equals("下一条")) {
                 try {
-                    message.message();
+                    message.read();
                     T_author.setText(message.getAuthor());
                     T_title.setText(message.getTitle());
                     A_content.setText(message.getContent());
@@ -343,7 +345,10 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
         if (e.getSource() == display) {
             if (display.getLabel().equals("显示")) {
                 try {
-                    message.message();
+                    titleString = T_title.getText();
+                    contentString = A_content.getText();
+                    message.clickDisplay();
+                    message.read();
                     T_author.setText(message.getAuthor());
                     T_title.setText(message.getTitle());
                     A_content.setText(message.getContent());
@@ -355,21 +360,16 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                 } catch (IOException e1) {
                     label.setText("读取失败");
                     dialog.setVisible(true);
-                } catch (Exception exception) {
-                    try {
-                        message = new Message();
-                    } catch (IOException e1) {
-                        label.setText("无留言");
-                        dialog.setVisible(true);
-                    }
                 }
             } else if (display.getLabel().equals("返回")) {
                 if (L_head.getText().equals("留言板")) {
-                    T_author.setText(userString);
                     T_title.setText(" ");
                     A_content.setText(" ");
                     T_title.setText("");
                     A_content.setText("");
+                    T_author.setText(userString);
+                    T_title.setText(titleString);
+                    A_content.setText(contentString);
                     T_title.setEditable(true);
                     A_content.setEditable(true);
                     submit.setLabel("提交");
