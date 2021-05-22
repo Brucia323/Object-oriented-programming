@@ -7,6 +7,7 @@ import java.io.RandomAccessFile;
  * @param authorString
  * @param titleString
  * @param contentString
+ * @deprecated
  * @version 1.0
  */
 public class MessageSet {
