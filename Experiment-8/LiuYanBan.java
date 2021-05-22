@@ -256,7 +256,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                     message.setTitle(T_title.getText());
                     message.setContent(A_content.getText());
                     try {
-                        message.messageSet();
+                        message.write();
                         label.setText("¡Ù—‘≥…π¶");
                         dialog.setVisible(true);
                         T_title.setText(" ");
