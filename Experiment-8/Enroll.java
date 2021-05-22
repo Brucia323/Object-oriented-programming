@@ -5,6 +5,7 @@ import java.io.RandomAccessFile;
  * ×¢²á
  *
  * @version 1.1
+ * @deprecated
  */
 public class Enroll {
     /** ÓÃ»§Ãû */
