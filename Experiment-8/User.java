@@ -8,7 +8,9 @@ import java.io.UnsupportedEncodingException;
  * @version 1.0
  */
 public class User {
+    /** ÓÃ»§Ãû */
     private String userString, userString2;
+    /** ÃÜÂë */
     private String passwordString, passwordString2;
 
     /**
