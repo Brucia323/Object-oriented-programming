@@ -98,13 +98,10 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
 
         p22 = new Panel();
         p22.setFont(new Font("ËÎÌו", Font.BOLD, 20));
-        p22.setLayout(new GridLayout(3, 3));
-        p22.add(new Label(""));
+        p22.setLayout(new GridLayout(3, 2));
         p22.add(new Label(""));
         p22.add(new Label(""));
         p22.add(T_author);
-        p22.add(new Label(""));
-        p22.add(new Label(""));
         p22.add(new Label(""));
         p22.add(new Label(""));
         p22.add(new Label(""));
@@ -118,13 +115,10 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
 
         p32 = new Panel();
         p32.setFont(new Font("ËÎÌו", Font.BOLD, 20));
-        p32.setLayout(new GridLayout(3, 3));
-        p32.add(new Label(""));
+        p32.setLayout(new GridLayout(3, 2));
         p32.add(new Label(""));
         p32.add(new Label(""));
         p32.add(T_title);
-        p32.add(new Label(""));
-        p32.add(new Label(""));
         p32.add(new Label(""));
         p32.add(new Label(""));
         p32.add(new Label(""));
