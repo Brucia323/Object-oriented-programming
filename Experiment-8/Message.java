@@ -19,8 +19,6 @@ public class Message {
     private String message;
     /** 当前读写指针所处的位置 */
     private long filePointer;
-    /** 文件包含的字节数 */
-    private long fileLength;
 
     /**
      * 构造方法
@@ -30,7 +28,6 @@ public class Message {
      */
     public Message() throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile("message.txt", "r");// 定义RandomAccessFile类，使用只读模式打开D:\message.txt文件
-        fileLength = randomAccessFile.length();
         randomAccessFile.close();// 关闭RandomAccessFile类
         filePointer = 0;
     }
@@ -46,8 +43,11 @@ public class Message {
     public void message() throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile("message.txt", "r");// 定义RandomAccessFile类，使用只读模式打开D:\message.txt文件
         randomAccessFile.seek(filePointer);// 设定读写指针的位置，与文件开头相隔[当前读写指针所处的位置]个字节数
-        message = new String(randomAccessFile.readLine().getBytes("ISO-8859-1"),"gbk");
+        message = new String(randomAccessFile.readLine().getBytes("ISO-8859-1"), "gbk");
         filePointer = randomAccessFile.getFilePointer();
+        if (randomAccessFile.getFilePointer() == randomAccessFile.length()) {
+            filePointer = 0;
+        }
         randomAccessFile.close();// 关闭RandomAccessFile类
         StringTokenizer stringTokenizer = new StringTokenizer(message, "&");// 定义StringTokenizer类，使用"&"分隔符解析message
         author = stringTokenizer.nextToken();
