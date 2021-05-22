@@ -4,6 +4,10 @@ import java.util.TimerTask;
 import java.util.*;
 import java.awt.event.*;
 
+/**
+ * ¼ÆÊ±Æ÷
+ * @version 2.0
+ */
 public class MyTimer extends Applet implements ActionListener {
     private Label time;
     private Button pause, resume;
