@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
  * µÇÂ¼
  *
  * @version 1.0
+ * @deprecated
  */
 public class Login {
     /** ÓÃ»§Ãû */
