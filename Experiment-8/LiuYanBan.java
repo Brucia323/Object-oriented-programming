@@ -37,7 +37,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
         T_author = new TextField(30);
         T_title = new TextField(30);
 
-        A_content = new TextArea(4, 10);
+        A_content = new TextArea("", 4, 10, 1);
 
         submit = new Button("µÇÂ¼");
         reset = new Button("ÓÎ¿ÍµÇÂ¼");
