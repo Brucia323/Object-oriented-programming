@@ -250,6 +250,9 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                 } else if (T_title.getText().indexOf("&") != -1 || A_content.getText().indexOf("&") != -1) {
                     label.setText("不允许输入&符号");
                     dialog.setVisible(true);
+                } else if (A_content.getText().indexOf("\n") != -1) {
+                    label.setText("不允许换行输入");
+                    dialog.setVisible(true);
                 } else {
                     MessageSet messageSet = new MessageSet(T_author.getText(), T_title.getText(), A_content.getText());
                     try {
