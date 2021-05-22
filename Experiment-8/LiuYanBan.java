@@ -379,6 +379,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                     L_head.setText("µÇÂ¼");
                     submit.setLabel("µÇÂ¼");
                     reset.setVisible(true);
+                    display.setLabel("×¢²á");
                 }
             } else if (display.getLabel().equals("×¢²á")) {
                 L_head.setText("×¢²á");
