@@ -23,7 +23,6 @@ public class Message {
     /**
      * 读取一条留言
      *
-     * @return 是否有留言能够读取
      * @throws IOException
      * @since 1.0
      * @version 1.3
