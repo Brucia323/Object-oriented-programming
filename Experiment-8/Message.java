@@ -3,7 +3,7 @@ import java.io.RandomAccessFile;
 import java.util.StringTokenizer;
 
 /**
- * 读取留言
+ * 留言
  *
  * @throws IOException
  * @version 2.1
@@ -61,7 +61,7 @@ public class Message {
      * @since 2.0
      * @version 1.2
      */
-    public void messageSet() throws IOException {
+    public void write() throws IOException {
         messageString = author + "&" + title + "&" + content + "\n";
         RandomAccessFile randomAccessFile = new RandomAccessFile("message.txt", "rw");// 定义RandomAccessFile类，使用读写模式打开D:\message.txt文件
         randomAccessFile.seek(randomAccessFile.length());// 设定读写指针的位置，与文件开头相隔[文件包含的字节数]个字节数
