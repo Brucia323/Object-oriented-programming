@@ -53,34 +53,28 @@ public class MyTimer extends Applet implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == pause) {
-            if (pause.getLabel() == "pause") {
-                timer.cancel();
-                pause.setLabel("continue");
-            } else {
-                timer = new Timer();
-                timer.schedule(new TimerTask() {
-                    public void run() {
-                        seconds += 1;
-                        if (seconds == 60) {
-                            minutes += 1;
-                            seconds = 0;
-                            if (minutes == 60) {
-                                hours += 1;
-                                minutes = 0;
-                                if (hours == 24) {
-                                    days += 1;
-                                    hours = 0;
-                                }
-                            }
-                        }
-                        repaint();
-                    }
-                }, 0, 1000);
-                pause.setLabel("pause");
-            }
+            timer.cancel();
         }
         if (e.getSource() == resume) {
-            days = hours = minutes = seconds = 0;
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                public void run() {
+                    seconds += 1;
+                    if (seconds == 60) {
+                        minutes += 1;
+                        seconds = 0;
+                        if (minutes == 60) {
+                            hours += 1;
+                            minutes = 0;
+                            if (hours == 24) {
+                                days += 1;
+                                hours = 0;
+                            }
+                        }
+                    }
+                    repaint();
+                }
+            }, 0, 1000);
         }
     }
 }
