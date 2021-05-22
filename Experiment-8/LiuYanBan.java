@@ -8,7 +8,7 @@ import java.util.TimerTask;
 /**
  * ¡Ù—‘∞Â
  *
- * @version 3.0
+ * @version 3.1
  */
 public class LiuYanBan extends Applet implements ActionListener, MouseListener {
     private static final Frame LiuYanBan = null;
