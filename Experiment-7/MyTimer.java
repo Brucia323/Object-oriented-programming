@@ -6,14 +6,10 @@ import java.awt.event.*;
 
 public class MyTimer extends Applet implements ActionListener {
     private Label time;
-    private Button pause;
-    private Button resume;
+    private Button pause, resume;
     private Timer timer;
     private String text;
-    private int days;
-    private int hours;
-    private int minutes;
-    private int seconds;
+    private int days, hours, minutes, seconds;
 
     @Override
     public void init() {
