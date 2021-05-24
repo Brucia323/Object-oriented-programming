@@ -1,6 +1,10 @@
 import java.applet.Applet;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Untitled extends Applet implements ActionListener {
     Label firstLabel, secondLabel, thirdLabel;
