@@ -1,8 +1,11 @@
 import java.applet.Applet;
-import java.awt.*;
+import java.awt.Button;
+import java.awt.Graphics;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Timer;
 import java.util.TimerTask;
-import java.util.*;
-import java.awt.event.*;
 
 /**
  * ¼ÆÊ±Æ÷
