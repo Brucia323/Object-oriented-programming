@@ -17,14 +17,14 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
     private TextArea A_content;
     private Button submit, reset, display, button;
     private Panel p12, p21, p22, p31, p32, p41, p42, p43, p51, panel;
-    private String userString,titleString,contentString;
+    private String userString, titleString, contentString;
     private Message message;
     private Label time;
     private Timer timer;
     private String text;
     private int days, hours, minutes, seconds;
     private Dialog dialog;
-    private User login,enroll;
+    private User login, enroll;
 
     @Override
     public void init() {
@@ -276,7 +276,7 @@ public class LiuYanBan extends Applet implements ActionListener, MouseListener {
                     label.setText("¶ÁÈ¡Ê§°Ü");
                     dialog.setVisible(true);
                 }
-            } else if (submit.getLabel().equals("×¢²á")){
+            } else if (submit.getLabel().equals("×¢²á")) {
                 if (T_title.getText().length() < 6) {
                     label.setText("ÃÜÂëÖÁÉÙ6Î»");
                     dialog.setVisible(true);
