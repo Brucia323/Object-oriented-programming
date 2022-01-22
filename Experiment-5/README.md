@@ -1,44 +1,29 @@
-# 实验5 Applet组件应用
+# 实验 5  Applet 组件应用
 
-1.  实验目的：
+一、   实验目的：
 
-```{=html}
-<!-- -->
-```
-1.  初步掌握使用applet开发GUI的方法；
+1. 初步掌握使用 applet 开发 GUI 的方法；
+2. 掌握 java.awt 包中 Label 类与 Button 类的使用；
+3. 掌握 Java 中的事件处理机制。
 
-2.  掌握java.awt包中Label类与Button类的使用；
+二、   实验时间：
 
-3.  掌握Java中的事件处理机制。
+三、   实验地点：
 
-```{=html}
-<!-- -->
-```
-2.  实验时间：
+四、   实验内容：
 
-3.  实验地点：
-
-4.  实验内容：
-
-1、将applet的前景色设置为Color.black，背景色设置为Color.cyan；
-
-2、在applet中依次放入三个标签，标签上的文字分别为"first","second"和"thrid"；
-
-3、在applet中依次放入三个按钮，按钮上的文字分别为"left","center"和"right";
-
-4、当按下文字为"left"的按钮，三个标签上的文字全都靠左边对齐，同时在标签与按钮的下方画一条红色的线条，并在线条下方用Grahpics对象的drawString()方法输出相应文字："您按下了left按钮，标签上的文字的对齐方式将修改为靠左对齐"，字体的颜色为黄色。
-
+1、将 applet 的前景色设置为 Color.black，背景色设置为 Color.cyan；  
+2、在 applet 中依次放入三个标签，标签上的文字分别为“first”,”second”和”thrid”；  
+3、在 applet 中依次放入三个按钮，按钮上的文字分别为“left”,”center”和”right”;  
+4、当按下文字为”left”的按钮，三个标签上的文字全都靠左边对齐，同时在标签与按钮的下方画一条红色的线条，并在线条下方用 Grahpics 对象的 drawString()方法输出相应文字：“您按下了 left 按钮，标签上的文字的对齐方式将修改为靠左对齐”，字体的颜色为黄色。  
 5、其余两个按钮的功能类推；
 
 五、实验要求：
 
-1．理解applet生存周期的四个方法，能够在此基础上利用applet开发简单的GUI；
-
-2．熟练掌握使用Graphics类的对象在applet中输出图形和文字的方法；
-
-3．掌握java.awt包中Label类的对象的构造以及功能方法的使用；
-
-4．掌握java.awt包中Button类的对象中的事件处理方法；
+1．理解 applet 生存周期的四个方法，能够在此基础上利用 applet 开发简单的 GUI；  
+2．熟练掌握使用 Graphics 类的对象在 applet 中输出图形和文字的方法；  
+3．掌握 java.awt 包中 Label 类的对象的构造以及功能方法的使用；  
+4．掌握 java.awt 包中 Button 类的对象中的事件处理方法；
 
 六、实验结果分析：
 

@@ -45,7 +45,6 @@ public class Untitled extends Applet implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
         if (e.getSource() == leftButton) {
             str = "您按下了left按钮，标签上的文字的对齐方式将修改为靠左对齐";
             firstLabel.setAlignment(Label.LEFT);

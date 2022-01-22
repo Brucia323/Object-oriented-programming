@@ -18,6 +18,7 @@ public class Sample extends Applet implements ActionListener {
     private Button submit, reset, display;
     private Panel p12, p21, p22, p31, p32, p41, p42, p43;
 
+    @Override
     public void init() {
         setLayout(new GridLayout(5, 3));
 
@@ -141,14 +142,14 @@ public class Sample extends Applet implements ActionListener {
             MessageSet messageSet = new MessageSet(T_author.getText(), T_title.getText(), A_content.getText());
             try {
                 messageSet.messageSet();
+                T_author.setText(" ");
+                T_title.setText(" ");
+                A_content.setText(" ");
+                T_author.setText("");
+                T_title.setText("");
+                A_content.setText("");
             } catch (IOException e1) {
             }
-            T_author.setText(" ");
-            T_title.setText(" ");
-            A_content.setText(" ");
-            T_author.setText("");
-            T_title.setText("");
-            A_content.setText("");
         }
         if (e.getSource() == reset) {
             T_author.setText(" ");

@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 /**
  * ¼ÆÊ±Æ÷
+ * 
  * @version 2.0
  */
 public class MyTimer extends Applet implements ActionListener {

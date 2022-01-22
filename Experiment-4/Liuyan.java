@@ -58,7 +58,6 @@ public class Liuyan {
                 System.out.println("Please Enter Your Order:");
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             // e.printStackTrace();
             System.out.println("程序权限不足");
         }

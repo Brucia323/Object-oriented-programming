@@ -1,1 +1,7 @@
-# Object-oriented-programming
+# 面向对象程序设计（JAVA）
+
+本书采用由浅入深、与实际应用紧密结合的方式，利用大量经典的实例，详细讲解 Java 面向对象的编程思想、编程语法和设计模式，介绍常见 Java 类库的用法，总结优化 Java 编程的各种宝贵经验，深入阐述 Java 虚拟机执行 Java 程序的原理。本书的实例均基于最新的 JDK8 版本。本书内容包括：面向对象开发方法概述、第一个 Java 应用、数据类型和变量、操作符、流程控制、继承、Java 语言中的修饰符、接口、异常处理、类的生命周期、对象的生命周期、内部类、多线程、数组、Java 集合、泛型、Lambda 表达式、输入与输出（I/O）、图形用户界面、常用 Swing 组件、Java 常用类和 Annotation 注解。本书的最大特色是以 6 条主线贯穿生书：面向对象编程思想、Java 语言的语法、Java 虚拟机执行 Java 程序的原理、在实际项目中的运用、设计模式和性能优化技巧。另外，本书还贯穿了 Oracle 公司的 OCIP（Oracle Certified Java Programmer）认证的考试要点。
+
+书中实例源文件及思考题答案的下载网址为：www.javathinker.net/download.htm
+
+本书适用于所有 Java 编程人员，包括 Java 初学者及资深 Java 开发人员。本书还可作为高校的 Java 教材，以及企业 Java 培训教材，也可作为 Oracle 公司的 OCIP 认证的辅导教材。

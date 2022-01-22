@@ -29,7 +29,6 @@ public class Fish extends Aquatilia {
 
     @Override
     public void swim() {
-        // TODO Auto-generated method stub
         System.out.println("游泳");
     }
 }

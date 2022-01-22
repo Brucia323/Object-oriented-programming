@@ -8,10 +8,12 @@ public class HelloEducation extends Applet {
     // 所有的applet程序都是Applet类的子类
     public String s;
 
+    @Override
     public void init() {
         s = new String("Welcome to Java World!");// 生成一个字符串对象
     }
 
+    @Override
     public void paint(Graphics graphics) {
         graphics.drawString(s, 25, 25);// 在浏览器中坐标为(25,25)的位置显示字符串s
     }
