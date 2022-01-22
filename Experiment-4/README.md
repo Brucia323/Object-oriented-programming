@@ -10,9 +10,9 @@
 
    1. 设计乘法表类 Multiplication，该类可以通过 FileWriter 类将 9\*9 乘法表的结果整数写入 D:\data.txt。
    1. 使用 RandomAccessFile 实现简单的留言板：
-   (1) 留言信息由作者，标题与留言内容三个部分组成。
-   (2) 通过标准输入流 System.in 获取用户输入的三部分信息(关于 System.in 的用法请上网查阅)，使用 RandomAccessFile 将留言信息保存在 d:\message.txt 文件中。
-   (3) 使用 RandomAccessFile 将留言信息逐行读出。
+      (1) 留言信息由作者，标题与留言内容三个部分组成。
+      (2) 通过标准输入流 System.in 获取用户输入的三部分信息(关于 System.in 的用法请上网查阅)，使用 RandomAccessFile 将留言信息保存在 d:\message.txt 文件中。
+      (3) 使用 RandomAccessFile 将留言信息逐行读出。
 
 **注：**
 
